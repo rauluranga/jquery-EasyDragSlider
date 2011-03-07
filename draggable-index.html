@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Easy Drag Slider jQuery Demo</title>
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+<script type="text/javascript" src="js/easySlider1.7_modified.js"></script>
+<script type="text/javascript" src="js/jquery.easydrag_modified.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+		
+		var _isDragging = false;
+		
+		$(".slider").each(
+			
+			function(index) {				
+				
+				var slider_id = $(this).attr('id');
+				
+				$(this).easySlider(
+					{
+						controlsBefore:	'<p class="controls">',
+						controlsAfter:	'</p>',
+						nextId: "nextBtn"+index,
+						prevId: "prevBtn"+index
+					}
+				);
+				
+				$(this).delegate('a','click', 
+						function(evt) {
+								
+								evt.preventDefault();
+																
+								if(!_isDragging) {
+									var hash_value = $(this).attr("href");
+									alert(hash_value);
+								}
+								
+								_isDragging = false;
+								
+								return false;
+						}
+				);
+				
+				var $draggable = $(this).find("#draggable");
+				
+				$draggable.easydrag(false);
+				
+				$draggable.ondrag(
+								  function(e) {
+								  		_isDragging = true;
+								  });
+								
+				$draggable.ondrop( 
+								  function(e) {
+														
+										var slider = $(e.target).parent();
+										var _index = slider.parents('ul').index();
+						
+										if($(this).getDragDirection() > 0) {
+											$("a","#nextBtn"+_index).click();
+										} else {
+											$("a","#prevBtn"+_index).click();
+										}
+										return false;
+								 });
+		});
+});	
+</script>
+</meta>
+</head>
+<body>	
+	<h1>Easy Drag Slider for images - styled version</h2>
+	<h3>[try drag slides back and forward]</h1>
+	<div id="content">
+		<ul>				
+			<li>
+				<p><img class="left" src="images/pCategory0.jpg"/></p>
+				<div id="slider_1" class="slider">
+					<div id="draggable">				
+						<span>
+							<p><a href="0"><img src="images/p0.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="1"><img src="images/p1.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="2"><img src="images/p2.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="3"><img src="images/p3.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="4"><img src="images/p4.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="5"><img src="images/p5.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="6"><img src="images/p6.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="7"><img src="images/p7.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="8"><img src="images/p8.jpg" alt="Css Template Preview" /></a></p>
+						</span>
+						<span>
+							<p><a href="0"><img src="images/p0.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="1"><img src="images/p1.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="2"><img src="images/p2.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="3"><img src="images/p3.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="4"><img src="images/p4.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="5"><img src="images/p5.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="6"><img src="images/p6.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="7"><img src="images/p7.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="8"><img src="images/p8.jpg" alt="Css Template Preview" /></a></p>
+						</span>
+					</div>
+				</div>
+			 </li>
+		</ul>
+		<ul>				
+			<li>
+				<p><img class="left" src="images/pCategory0.jpg"/></p>
+				<div id="slider_2" class="slider">
+					<div id="draggable">				
+						<span>
+							<p><a href="0"><img src="images/p0.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="1"><img src="images/p1.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="2"><img src="images/p2.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="3"><img src="images/p3.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="4"><img src="images/p4.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="5"><img src="images/p5.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="6"><img src="images/p6.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="7"><img src="images/p7.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="8"><img src="images/p8.jpg" alt="Css Template Preview" /></a></p>
+						</span>
+						<span>
+							<p><a href="0"><img src="images/p0.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="1"><img src="images/p1.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="2"><img src="images/p2.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="3"><img src="images/p3.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="4"><img src="images/p4.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="5"><img src="images/p5.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="6"><img src="images/p6.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="7"><img src="images/p7.jpg" alt="Css Template Preview" /></a></p>
+							<p><a href="8"><img src="images/p8.jpg" alt="Css Template Preview" /></a></p>
+						</span>
+					</div>
+				</div>
+			 </li>
+		</ul>
+	</div>
+	<h3>(this example uses a modified versions of the easydrag and easySlider jQuery Plugins)</h1>
+</body>
+</html>

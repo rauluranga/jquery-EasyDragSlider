@@ -1,0 +1,105 @@
+/* Easy Slider */
+	
+	.slider {
+		display:block;
+		position:relative;
+		overflow:hidden;
+		width: 810px;
+		height:90px;
+	}
+	
+	.slider div {
+		position:absolute;
+	}
+
+	.slider span { 
+		/* 
+			define width and height of slide)
+			entire slider area will adjust according to the parameters provided here
+		*/
+		float:left;
+		width:810px;
+		height:90px;
+	
+	}
+	
+	span p
+	{
+	    width:90px;
+	    height:90px;
+	    display:block;
+	    float:left;
+	}
+
+/* Easy Slider Controls */
+		
+	.controls {
+		margin:0;
+		position:relative;
+	}
+		
+	.slider-prevBtn, .slider-nextBtn  { 
+		display:block;
+		margin:0;
+		overflow:hidden;
+		text-indent:-8000px;		
+		width:30px;
+		height:77px;
+		position:absolute;
+		left:-30px;
+		top:-90px;
+
+	}
+		
+	.slider-nextBtn { 
+		left:900px;
+	}
+	
+	.slider-nextBtn a, .slider-prevBtn a {  
+		display:block;
+		width:30px;
+		height:77px;
+		background:url(./../images/btn_prev.gif) no-repeat 0 0;	
+	}
+		
+	.slider-nextBtn a { 
+		background:url(./../images/btn_next.gif) no-repeat 0 0;	
+	}
+	
+    .slider img {
+		border:none;
+	}
+
+/* content */
+
+	li {
+	  width: 900px;
+	  text-decoration: none;
+	  list-style-type: none;
+	  background-color:gray;
+	}
+	
+	ul {
+	    padding-left: 0;
+		margin:0;
+		padding:0;
+	}
+			
+	p {margin:0; padding:0;}
+	
+	.left {
+		float:left;
+	}	
+	
+	/*	clear:both;*/
+	
+	body {
+		margin:0;
+		padding:40px;
+		background:#fff;
+		font:80% Arial, Helvetica, sans-serif;
+		color:#555;
+		line-height:180%;
+	}
+	
+	
